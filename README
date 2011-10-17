@@ -1,0 +1,11 @@
+Control a strip of LPD8806 driven LEDs using Arduino and Python over a serial port.
+
+Requires cjbaar's derivative of Adafruit's LPD8806 library https://github.com/cjbaar/LPD8806
+PySerial to use the Python control program
+
+Change the variable for SERIAL_DEVICE to match the path to your particular serial device.
+LED_COUNT in stripctrl.pde for the number of LEDs you have on your strip.
+
+Simple description of the protocol: Write 8 bytes with hex values and a new line. 1st 2 bytes
+selects the LED, the next 6 is the RGB value for the LED.  Send FF\n to send the updates
+values to the strip.  IE:  05FF0000\n will set the 6th LED to red.  FF\n then makes the change visisble.
